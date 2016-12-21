@@ -47,4 +47,7 @@ while i < len(boss_song_list):
     div = div.text
     all_lyrics += div
     i += 1
+
+# Put text in a text file
+file = open('TheBossLyrics.txt', 'w')
     
