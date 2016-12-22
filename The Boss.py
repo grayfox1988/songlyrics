@@ -2,7 +2,7 @@
     'Counting with Bruce Springsteen' is a program that takes the whole corpus
     of the Boss's work, cleans and filters the text, and creates an analysis
     based on the text to gather insights into themes in the music.
-    
+
 """
 
 from urllib.request import urlopen
@@ -37,7 +37,7 @@ while i < len(boss_song_list):
     boss = ''.join(x for x in boss if x not in punct)
     url_songs = 'http://www.azlyrics.com/lyrics/brucespringsteen/' + boss + '.html'
     #print(url_songs)
-    
+
     # Now that we have URLs, need to get html and clean text for lyrics
     # Below still needs work!
     html = urlopen(url_songs).read()
@@ -46,8 +46,11 @@ while i < len(boss_song_list):
     div = div[22]
     div = div.text
     all_lyrics += div
+    # Sleep for one second
+    time.sleep(1)
     i += 1
 
 # Put text in a text file
-file = open('TheBossLyrics.txt', 'w')
-    
+f = open('TheBossLyrics.txt', 'a')
+f.write(all_lyrics)
+f.close
